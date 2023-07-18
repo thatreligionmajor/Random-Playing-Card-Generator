@@ -1,1 +1,74 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+/* background */
+html,
+body {
+  background: radial-gradient(
+    848px at 10% 20%,
+    rgba(174, 231, 165, 0.9) 0%,
+    rgb(181, 205, 154) 90%
+  );
+  background-repeat: no-repeat;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+/* header */
+h1 {
+  padding-top: 3rem;
+  color: #668ba4;
+}
+h6 {
+  color: #668ba4;
+}
+/* button */
+button {
+  background-color: #92bd94; /* Green */
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: auto;
+  margin-top: 3rem;
+}
+button:hover {
+  background-color: #81ae83; /* Green */
+}
+button:active {
+  background-color: #81ae83;
+  box-shadow: 0 5px #80977ba9;
+  transform: translateY(4px);
+}
+
+#topOfCard {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background: #f9f8e4;
+  padding: 2rem;
+  font-size: 2rem;
+  margin-top: 3rem;
+}
+
+#middleOfCard {
+  background: #f9f8e4;
+  padding: 3rem;
+  font-size: 4rem;
+}
+
+#bottomOfCard {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background: #f9f8e4;
+  padding: 2rem;
+  font-size: 2rem;
+  -moz-transform: scale(-1, -1);
+  -webkit-transform: scale(-1, -1);
+  -o-transform: scale(-1, -1);
+  transform: scale(-1, -1);
+}
