@@ -29,15 +29,13 @@ let randomValueIndex = () => {
   return Math.floor(Math.random() * listOfCardValues.length); // random index
 };
 
-//turn functions into variables
-let suit = listOfCardSuits[randomSuitIndex()];
-let value = listOfCardValues[randomValueIndex()];
-
-//test
-console.log(suit + value + suit);
-
 window.onload = function() {
-  //everything else
+  let suitIndex = randomSuitIndex();
+  let suit = listOfCardSuits[suitIndex];
+  let value = listOfCardValues[randomValueIndex()];
+  //test
+  console.log(suit + value + suit);
+
   let cardGenerated = document.querySelector("div");
   let suitDivOne = document.createElement("div");
   suitDivOne.setAttribute("id", "topOfCard");
@@ -61,4 +59,18 @@ window.onload = function() {
     valueDiv.textContent = onClickValue;
     suitDivTwo.textContent = onClickSuit;
   };
+  //suit solor
+  function getSuitColor(suitIndex) {
+    switch (suitIndex) {
+      case 0: // ♠ - Spades
+        return "black";
+      case 1: // ♣ - Clubs
+        return "black";
+      case 2: // ♥ - Hearts
+        return "red";
+      case 3: // ♦ - Diamonds
+        return "red";
+    }
+  }
+  cardGenerated.style.color = getSuitColor(suitIndex);
 };
