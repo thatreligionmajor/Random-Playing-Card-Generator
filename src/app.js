@@ -22,7 +22,7 @@ let listOfCardValues = [
   "K"
 ];
 
-let randomSuitIndex = () => {
+const randomSuitIndex = () => {
   return Math.floor(Math.random() * listOfCardSuits.length); // random index
 };
 let randomValueIndex = () => {
@@ -30,13 +30,13 @@ let randomValueIndex = () => {
 };
 
 window.onload = function() {
-  let suitIndex = randomSuitIndex();
+  const suitIndex = randomSuitIndex();
   let suit = listOfCardSuits[suitIndex];
   let value = listOfCardValues[randomValueIndex()];
   //test
   console.log(suit + value + suit);
 
-  let cardGenerated = document.querySelector("div");
+  const cardGenerated = document.querySelector("div");
   let suitDivOne = document.createElement("div");
   suitDivOne.setAttribute("id", "topOfCard");
   suitDivOne.textContent = suit;
@@ -51,26 +51,42 @@ window.onload = function() {
   suitDivTwo.textContent = suit;
   suitDivTwo.style.textAlign = "left";
   cardGenerated.appendChild(suitDivTwo);
+  //onload suit color
+  function getSuitColor(suitIndex) {
+    switch (suitIndex) {
+      case 0: // ♠ - Spades
+        return "#668ba4";
+      case 1: // ♣ - Clubs
+        return "#668ba4";
+      case 2: // ♥ - Hearts
+        return "#c94a43";
+      case 3: // ♦ - Diamonds
+        return "#c94a43";
+    }
+  }
+  cardGenerated.style.color = getSuitColor(suitIndex);
+  //button
   let button = document.querySelector("button");
   button.onclick = function() {
-    let onClickSuit = listOfCardSuits[randomSuitIndex()];
+    let suitIndex = randomSuitIndex(); //chatgpt line color randomly applying
+    let onClickSuit = listOfCardSuits[suitIndex];
     let onClickValue = listOfCardValues[randomValueIndex()];
     suitDivOne.textContent = onClickSuit;
     valueDiv.textContent = onClickValue;
     suitDivTwo.textContent = onClickSuit;
-  };
-  //suit solor
-  function getSuitColor(suitIndex) {
-    switch (suitIndex) {
-      case 0: // ♠ - Spades
-        return "black";
-      case 1: // ♣ - Clubs
-        return "black";
-      case 2: // ♥ - Hearts
-        return "red";
-      case 3: // ♦ - Diamonds
-        return "red";
+    //onclick suit color not working
+    function getSuitColor(suitIndex) {
+      switch (suitIndex) {
+        case 0: // ♠ - Spades
+          return "#668ba4";
+        case 1: // ♣ - Clubs
+          return "#668ba4";
+        case 2: // ♥ - Hearts
+          return "#c94a43";
+        case 3: // ♦ - Diamonds
+          return "#c94a43";
+      }
     }
-  }
-  cardGenerated.style.color = getSuitColor(suitIndex);
+    cardGenerated.style.color = getSuitColor(suitIndex);
+  };
 };
